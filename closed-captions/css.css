@@ -5,21 +5,188 @@ Show them when they receive the class 'on'
 Hide them when they receive the class 'off'
 Feel free to adjust the defaults to your needs.
 ********************************************** */
-#closed-captions p {
-	opacity: 0;
-	transition: .05s;
-	position: absolute;
+
+:root {
+	--main-font: "brenner mono";
+	--light-weight: 200;
+
+	--sans-font: "Brenner Sans Condensed";
+	--regular-weight: 400;
+
+	--medium-weight: 600;
+
+	--bold-weight: 800;
+
+	--regular-style: Normal;
+  }
+
+
+.container{
+	display: grid;
+	grid-template-columns: 1fr 500px 500px 1fr;
+	grid-template-rows: minmax(100px, auto);
+	
 }
+
+.item-2{
+	width: 500px;
+	height: 300px;
+	background: black;
+	overflow: auto;
+}
+
+
+body{
+	margin: 30px auto;
+}
+
+.sound1{
+	
+}
+
+#closed-captions p {
+	opacity: 1;
+	display: none;
+	transition: .05s;
+	color: rgb(13, 226, 13);
+	font-size: 18px;
+	margin: 20px 20px;
+	/* text-align: center; */
+}
+
 #closed-captions .on {
 	opacity: 1;
+	display: block;
 }
+
 #closed-captions .off {
 	transition: .2s;
+	opacity: 1;
+}
+
+.header{
+	font-family: var(--main-font);
+	font-style: Normal;
+	font-weight: var(--light-font);
+	letter-spacing: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.info{
+	font-family: var(--main-font);
+	font-style: Normal;
+	font-weight: 400;
+	margin: 4px 20px;
+}
+
+.main{
+	font-weight: 600;
+	margin-top: 20px;
+}
+
+.item-3 {
+	width: 500px;
+	position: relative;
+	margin: 20px auto;
+  }
+
+  .strongline{
+	  height: 75px;
+		width: 500px;
+		opacity: 0;
+  }
+
+  .softline{
+	height: 100px;
+	width: 500px;
 	opacity: 0;
-}
-.voice1 {
-	font-style: italic;
-}
+  }
+
+
+
+  .fade-in {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	top: 0;
+	right: 0;
+	animation: heartRateIn 2.5s linear infinite;
+	}
+	
+  .fade-in1 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	top: 0;
+	right: 0;
+	animation: heartRateIn 1.5s linear infinite;
+	opacity: 0;
+  }
+
+  /* .fade-out {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: -120%;
+	animation: heartRateOut 2.5s linear infinite;
+	background: rgba(255, 255, 255, 1);
+	background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+	}
+	
+  .fade-out1 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: -120%;
+	animation: heartRateOut 1.5s linear infinite;
+	background: rgba(255, 255, 255, 1);
+	background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+	opacity: 0;
+  } */
+
+  
+  @keyframes heartRateIn {
+	0% {
+	  width: 100%;
+	}
+	50% {
+	  width: 0;
+	}
+	100% {
+	  width: 0;
+	}
+  		}
+  
+  @keyframes heartRateOut {
+	0% {
+	  left: -120%;
+	}
+	30% {
+	  left: -120%;
+	}
+	100% {
+	  left: 0;
+	}
+  		}	
+
+	 .sound1 .strongline{
+		opacity: 1;
+	}
+
+
+
+
+	 /* .sound3 .fade-in .fade-out{
+		opacity: 1;
+	} */
+
+
+
 
 /* **********************************************
 The first paragraph, with extended timing for 
@@ -29,11 +196,11 @@ The first paragraph, with extended timing for
 	spoken.
 You probably want to change the styling.
 ********************************************** */
-.p0 span {
-	opacity: 0;
-	font-family: brenner;
-}
-.p0.on span:first-of-type {
+
+
+
+
+/* .p0.on span:first-of-type {
 	opacity: 1;
 	transition: 0s;
 	font-weight: 200;
@@ -60,37 +227,91 @@ You probably want to change the styling.
 	opacity: 1;
 	transition: 0s 1.1s;
 	margin-right: -.25em;
-	font-family: "brenner sans";
 }
 .p0.on span:nth-of-type(6) {
 	opacity: 1;
 	transition: 0s 1.4s;
 	margin-right: -.25em;
-	font-family: "brenner display";
 }
 .p0.on span:nth-of-type(7) {
 	opacity: 1;
 	transition: 0s 1.7s;
 	margin-right: -.25em;
-	font-family: "brenner script";
 }
 .p0.on span:nth-of-type(8) {
 	opacity: 1;
 	transition: 0s 2s;
-	font-family: "brenner script";
+	margin-right: -.25em;
 }
 .p0.on span:nth-of-type(9) {
 	opacity: 1;
 	transition: 0s 3s;
-	font-family: "brenner Sans condensed";
+	margin-right: -.25em;
 }
 .p0.on span:nth-of-type(10) {
 	opacity: 1;
 	transition: 0s 3.2s;
-	font-family: "brenner mono";
+	margin-right: -.25em;
 }
 .p0.on span:nth-of-type(11) {
 	opacity: 1;
 	transition: 0s 3.7s;
-	font-family: "brenner slab";
+	margin-right: -.25em;
+} */
+
+/* 
+.p0 span {
+	font-family: var(--main-font);
+	font-weight: var(--light-weight);
+	font-style: var(--regular-style);
+}
+
+.p1.on span{
+	font-family: var(--sans-font);
+	font-weight: var(--regular-weight);
+	font-style: var(--regular-style);
+}
+
+.p2.on span{
+	font-family: var(--maint-font);
+	font-weight: var(--light-weight);
+	font-style: var(--regular-style);
+}
+
+.p3.on span{
+	
+	font-family: "Brenner Sans Condensed";
+	font-weight: Normal;
+	font-style: 400;
+} */
+
+.p3.on .p4.on .p5.on{
+	line-height: 5px;
+}
+
+
+.voice1{
+	font-family: var(--main-font);
+	font-weight: var(--light-weight);
+	font-style: var(--regular-style);
+	letter-spacing: -1px;
+}
+
+.voice2{
+	font-family: var(--sans-font);
+	font-weight: var(--regular-weight);
+	letter-spacing: 3px;
+	font-style: var(--regular-style);
+}
+
+.voice3{
+	font-family: var(--sans-font);
+	font-weight: var(--bold-weight);
+	font-style: var(--regular-style);
+}
+
+.voice4{
+	font-family: var(--main-font);
+	font-weight: var(--medium-weight);
+	font-style: var(--regular-style);
 }
